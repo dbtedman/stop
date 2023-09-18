@@ -53,7 +53,6 @@ type IndexData struct {
 	Title string
 }
 
-// crimson is an exploration into security headers with a gohtml site
 func main() {
 	// TODO: Read from cli/env
 	dev := true

@@ -1,8 +1,12 @@
 # [Stop](https://github.com/dbtedman/stop)
 
-Go monorepo.
+Go experiments monorepo.
 
-## Run
+## Experiments
+
+### Crimson
+
+An exploration into security headers with a gohtml site.
 
 ```shell
 go run ./crimson
