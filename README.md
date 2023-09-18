@@ -4,6 +4,14 @@ Go experiments monorepo.
 
 ## Experiments
 
+### Aquamarine
+
+Provide security by proxying requests to legacy applications.
+
+```shell
+go run ./aquamarine
+```
+
 ### Crimson
 
 An exploration into security headers with a gohtml site.
