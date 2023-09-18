@@ -4,6 +4,8 @@ Go experiments monorepo.
 
 ## Experiments
 
+An experiment for [every colour of the web](https://en.wikipedia.org/wiki/Web_colors).
+
 ### Aquamarine
 
 Provide security by proxying requests to legacy applications.
