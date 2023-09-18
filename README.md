@@ -21,6 +21,13 @@ go run ./crimson
 go run ./crimson -dev=true
 ```
 
+## Workflow
+
+```shell
+# On updating go.work file.
+go work sync
+```
+
 ## Resources
 
 Resources referenced during the development of these experiments.
