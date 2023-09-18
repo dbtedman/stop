@@ -6,7 +6,7 @@ Go experiments monorepo.
 
 An experiment for [every colour of the web](https://en.wikipedia.org/wiki/Web_colors).
 
-### Aquamarine
+### [Aquamarine](./aquamarine/)
 
 Provide security by proxying requests to legacy applications.
 
@@ -14,7 +14,7 @@ Provide security by proxying requests to legacy applications.
 go run ./aquamarine
 ```
 
-### Crimson
+### [Crimson](./crimson/)
 
 An exploration into security headers with a gohtml site.
 
