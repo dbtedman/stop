@@ -6,6 +6,10 @@
 
 Go experiments monorepo.
 
+- [Experiments](#experiments)
+- [Resources](#resources)
+- [License](#license)
+
 ## Experiments
 
 An experiment for [every colour of the web](https://en.wikipedia.org/wiki/Web_colors).
@@ -68,3 +72,7 @@ Resources referenced during the development of these experiments.
 - [V. Single Host Reverse Proxy (fideloper.com)](https://fideloper.com/golang-single-host-reverse-proxy)
 - [What is .crt and .key files and how to generate them? (serverfault.com)](https://serverfault.com/questions/224122#answer-224127)
 - [What's the best way to bundle static resources in a Go program? (stackoverflow.com)](https://stackoverflow.com/questions/13904441)
+
+## License
+
+See [LICENSE.md](./LICENSE.md) for details.
