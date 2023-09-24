@@ -1,0 +1,17 @@
+# https://golangci-lint.run/usage/linters/
+linters:
+    disable-all: true
+    enable:
+        - errcheck # https://github.com/kisielk/errcheck
+        - exhaustive # https://github.com/nishanths/exhaustive
+        - gocyclo # https://github.com/fzipp/gocyclo
+        - gofmt # https://pkg.go.dev/cmd/gofmt
+        - goimports # https://pkg.go.dev/golang.org/x/tools/cmd/goimports
+        - gosec # https://github.com/securego/gosec
+        - gosimple # https://github.com/dominikh/go-tools/tree/master/simple
+        - ineffassign # https://github.com/gordonklaus/ineffassign
+        - misspell # https://github.com/client9/misspell
+        - staticcheck # https://staticcheck.io
+        - typecheck
+        - unused # https://github.com/dominikh/go-tools/tree/master/unused
+        - vet # https://pkg.go.dev/cmd/vet

@@ -1,10 +1,11 @@
 package http_header_test
 
 import (
-	"github.com/dbtedman/stop/internal/http_header"
-	"github.com/stretchr/testify/assert"
 	"net/http"
 	"testing"
+
+	"github.com/dbtedman/stop/internal/http_header"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSetStrictTransportSecurityHeader(t *testing.T) {

@@ -2,9 +2,10 @@ package command_test
 
 import (
 	"bytes"
+	"testing"
+
 	"github.com/dbtedman/stop/internal/command"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestVersionCommand(t *testing.T) {

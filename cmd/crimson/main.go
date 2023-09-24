@@ -6,7 +6,6 @@ import (
 	"encoding/hex"
 	"flag"
 	"fmt"
-	"golang.org/x/crypto/argon2"
 	"html/template"
 	"math"
 	"math/big"
@@ -14,6 +13,8 @@ import (
 	"os"
 	"strconv"
 	"time"
+
+	"golang.org/x/crypto/argon2"
 )
 
 //go:embed static/*

@@ -1,11 +1,12 @@
 package http_header_test
 
 import (
+	"net/http"
+	"testing"
+
 	"github.com/dbtedman/stop/internal/http_header"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/exp/slices"
-	"net/http"
-	"testing"
 )
 
 func TestSetXFrameOptionsHeader(t *testing.T) {

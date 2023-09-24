@@ -1,12 +1,13 @@
 package http_header_test
 
 import (
-	"github.com/dbtedman/stop/internal/http_header"
-	"github.com/stretchr/testify/assert"
-	"golang.org/x/exp/slices"
 	"net/http"
 	"strings"
 	"testing"
+
+	"github.com/dbtedman/stop/internal/http_header"
+	"github.com/stretchr/testify/assert"
+	"golang.org/x/exp/slices"
 )
 
 func TestSetPermissionsPolicyHeader(t *testing.T) {

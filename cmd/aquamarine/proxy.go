@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/dbtedman/stop/internal/http_header"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
 	"time"
+
+	"github.com/dbtedman/stop/internal/http_header"
 )
 
 func NewProxyHandler(toUrl url.URL) *httputil.ReverseProxy {

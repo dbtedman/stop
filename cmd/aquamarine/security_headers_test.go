@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/stretchr/testify/assert"
-	"golang.org/x/exp/slices"
 	"net/http"
 	"strings"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"golang.org/x/exp/slices"
 )
 
 func TestSetContentSecurityPolicyHeader(t *testing.T) {

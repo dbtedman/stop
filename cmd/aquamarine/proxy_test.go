@@ -2,11 +2,12 @@ package main
 
 import (
 	"errors"
-	"github.com/dbtedman/stop/internal/http_header"
-	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/url"
 	"testing"
+
+	"github.com/dbtedman/stop/internal/http_header"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestNewProxyHandler(t *testing.T) {
