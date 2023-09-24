@@ -1,10 +1,10 @@
-package main
+package command_test
 
 import (
 	"bytes"
-	"testing"
-
+	"github.com/dbtedman/stop/internal/command"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestVersionCommand(t *testing.T) {
@@ -12,7 +12,7 @@ func TestVersionCommand(t *testing.T) {
 	errorCh := make(chan error)
 	var errConsole bytes.Buffer
 	var outConsole bytes.Buffer
-	command := VersionCommand(&errorCh)
+	command := command.VersionCommand(&errorCh)
 	command.SetErr(&errConsole)
 	command.SetOut(&outConsole)
 

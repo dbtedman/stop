@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"github.com/dbtedman/stop/internal/http_header"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/url"
@@ -34,7 +35,7 @@ func TestNewProxyHandlerModifyResponse(t *testing.T) {
 	assert.NotNil(t, response.Header.Get(ReferrerPolicy))
 	assert.NotNil(t, response.Header.Get(XContentTypeOptions))
 	assert.NotNil(t, response.Header.Get(XFrameOptions))
-	assert.NotNil(t, response.Header.Get(StrictTransportSecurity))
+	assert.NotNil(t, response.Header.Get(http_header.StrictTransportSecurity))
 	assert.NotNil(t, response.Header.Get(ContentSecurityPolicy))
 }
 

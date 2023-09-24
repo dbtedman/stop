@@ -6,12 +6,7 @@ const PermissionsPolicy = "Permissions-Policy"
 const ReferrerPolicy = "Referrer-Policy"
 const XContentTypeOptions = "X-Content-Type-Options"
 const XFrameOptions = "X-Frame-Options"
-const StrictTransportSecurity = "Strict-Transport-Security"
 const ContentSecurityPolicy = "Content-Security-Policy"
-
-func SetStrictTransportSecurityHeader(response *http.Response) {
-	response.Header.Set(StrictTransportSecurity, "max-age=300; includeSubDomains")
-}
 
 func SetContentSecurityPolicyHeader(response *http.Response) {
 	// Start by denying all content, then selectively allowing it.

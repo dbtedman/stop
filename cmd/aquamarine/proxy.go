@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/dbtedman/stop/internal/http_header"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
@@ -11,7 +12,7 @@ import (
 func NewProxyHandler(toUrl url.URL) *httputil.ReverseProxy {
 	proxy := httputil.NewSingleHostReverseProxy(&toUrl)
 	proxy.ModifyResponse = func(response *http.Response) error {
-		SetStrictTransportSecurityHeader(response)
+		http_header.SetStrictTransportSecurityHeader(response)
 		SetContentSecurityPolicyHeader(response)
 		SetXFrameOptionsHeader(response)
 		SetXContentTypeOptionsHeader(response)

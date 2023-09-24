@@ -8,19 +8,6 @@ import (
 	"testing"
 )
 
-func TestSetStrictTransportSecurityHeader(t *testing.T) {
-	response := &http.Response{Header: http.Header{}}
-	SetStrictTransportSecurityHeader(response)
-
-	result := response.Header.Get(StrictTransportSecurity)
-
-	// reference:
-	// - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
-	// - https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#strict-transport-security-hsts
-	// - https://hstspreload.org
-	assert.Equal(t, result, "max-age=300; includeSubDomains")
-}
-
 func TestSetContentSecurityPolicyHeader(t *testing.T) {
 	response := &http.Response{Header: http.Header{}}
 	SetContentSecurityPolicyHeader(response)
