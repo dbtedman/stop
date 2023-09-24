@@ -56,10 +56,10 @@ builds:
 archives:
     -   format: "binary"
         id: "binary"
-        name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+        name_template: '{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
     -   format: "zip"
         id: "zip"
-        name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+        name_template: '{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
 
 checksum:
     name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
