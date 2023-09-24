@@ -39,7 +39,7 @@ brew install dbtedman/tap/crimson
 ```
 
 ```shell
-crimson
+crimson -cert=host.cert -key=host.key
 ```
 
 ## Resources
