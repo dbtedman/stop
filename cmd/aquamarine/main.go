@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/dbtedman/stop/aquamarine/cmd"
 	"os"
 	"os/signal"
 	"syscall"
@@ -29,7 +28,7 @@ func main() {
 	}()
 
 	go func() {
-		cmd.RunRoot(&errorCh)
+		RunRoot(&errorCh)
 	}()
 
 	select {

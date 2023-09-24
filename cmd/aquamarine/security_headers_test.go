@@ -1,21 +1,18 @@
-package security_test
+package main
 
 import (
+	"github.com/stretchr/testify/assert"
+	"golang.org/x/exp/slices"
 	"net/http"
 	"strings"
 	"testing"
-
-	"github.com/dbtedman/stop/aquamarine/internal/security"
-
-	"github.com/stretchr/testify/assert"
-	"golang.org/x/exp/slices"
 )
 
 func TestSetStrictTransportSecurityHeader(t *testing.T) {
 	response := &http.Response{Header: http.Header{}}
-	security.SetStrictTransportSecurityHeader(response)
+	SetStrictTransportSecurityHeader(response)
 
-	result := response.Header.Get(security.StrictTransportSecurity)
+	result := response.Header.Get(StrictTransportSecurity)
 
 	// reference:
 	// - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
@@ -26,9 +23,9 @@ func TestSetStrictTransportSecurityHeader(t *testing.T) {
 
 func TestSetContentSecurityPolicyHeader(t *testing.T) {
 	response := &http.Response{Header: http.Header{}}
-	security.SetContentSecurityPolicyHeader(response)
+	SetContentSecurityPolicyHeader(response)
 
-	result := response.Header.Get(security.ContentSecurityPolicy)
+	result := response.Header.Get(ContentSecurityPolicy)
 
 	// reference:
 	// - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
@@ -67,9 +64,9 @@ func TestSetContentSecurityPolicyHeader(t *testing.T) {
 
 func TestSetXFrameOptionsHeader(t *testing.T) {
 	response := &http.Response{Header: http.Header{}}
-	security.SetXFrameOptionsHeader(response)
+	SetXFrameOptionsHeader(response)
 
-	result := response.Header.Get(security.XFrameOptions)
+	result := response.Header.Get(XFrameOptions)
 
 	// reference:
 	// - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
@@ -83,9 +80,9 @@ func TestSetXFrameOptionsHeader(t *testing.T) {
 
 func TestSetXContentTypeOptionsHeader(t *testing.T) {
 	response := &http.Response{Header: http.Header{}}
-	security.SetXContentTypeOptionsHeader(response)
+	SetXContentTypeOptionsHeader(response)
 
-	result := response.Header.Get(security.XContentTypeOptions)
+	result := response.Header.Get(XContentTypeOptions)
 
 	// reference:
 	// - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
@@ -95,9 +92,9 @@ func TestSetXContentTypeOptionsHeader(t *testing.T) {
 
 func TestSetReferrerPolicyHeader(t *testing.T) {
 	response := &http.Response{Header: http.Header{}}
-	security.SetReferrerPolicyHeader(response)
+	SetReferrerPolicyHeader(response)
 
-	result := response.Header.Get(security.ReferrerPolicy)
+	result := response.Header.Get(ReferrerPolicy)
 
 	// reference:
 	// - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
@@ -118,9 +115,9 @@ func TestSetReferrerPolicyHeader(t *testing.T) {
 
 func TestSetPermissionsPolicyHeader(t *testing.T) {
 	response := &http.Response{Header: http.Header{}}
-	security.SetPermissionsPolicyHeader(response)
+	SetPermissionsPolicyHeader(response)
 
-	result := response.Header.Get(security.PermissionsPolicy)
+	result := response.Header.Get(PermissionsPolicy)
 
 	resultPartsPairs := strings.Split(result, ",")
 

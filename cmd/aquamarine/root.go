@@ -1,7 +1,6 @@
-package cmd
+package main
 
 import (
-	"github.com/dbtedman/stop/aquamarine/internal/proxy"
 	"github.com/spf13/cobra"
 )
 
@@ -32,7 +31,7 @@ func RootCommand(errorCh *chan error) *cobra.Command {
 		},
 	}
 
-	var proxyServer proxy.Proxy = &proxy.ServerProxy{}
+	var proxyServer Proxy = &ServerProxy{}
 
 	rootCommand.AddCommand(ServeCommand(proxyServer, errorCh))
 	rootCommand.AddCommand(VersionCommand(errorCh))

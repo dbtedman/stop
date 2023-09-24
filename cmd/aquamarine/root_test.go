@@ -1,20 +1,18 @@
-package cmd_test
+package main
 
 import (
 	"bytes"
 	"testing"
 
-	"github.com/dbtedman/stop/aquamarine/cmd"
-
 	"github.com/stretchr/testify/assert"
 )
 
-func TestVersionCommand(t *testing.T) {
+func TestRootCommand(t *testing.T) {
 	// given
 	errorCh := make(chan error)
 	var errConsole bytes.Buffer
 	var outConsole bytes.Buffer
-	command := cmd.VersionCommand(&errorCh)
+	command := RootCommand(&errorCh)
 	command.SetErr(&errConsole)
 	command.SetOut(&outConsole)
 
@@ -27,7 +25,6 @@ func TestVersionCommand(t *testing.T) {
 	// then
 	assert.Nil(t, err)
 	assert.Equal(t, "", errConsole.String())
-	assert.Contains(t, outConsole.String(), "Conveyance version: latest")
-	assert.Contains(t, outConsole.String(), "commit: n/a")
-	assert.Contains(t, outConsole.String(), "built at: n/a")
+	assert.Contains(t, outConsole.String(), "Provide security by proxying requests to legacy applications.")
+	assert.Contains(t, outConsole.String(), "-h, --help   help for conveyance")
 }

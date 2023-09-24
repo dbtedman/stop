@@ -6,7 +6,7 @@ Go experiments monorepo.
 
 An experiment for [every colour of the web](https://en.wikipedia.org/wiki/Web_colors).
 
-### [Aquamarine](./aquamarine/)
+### [Aquamarine](cmd/aquamarine/)
 
 Provide security by proxying requests to legacy applications.
 
@@ -16,7 +16,7 @@ go run ./aquamarine --from=:3000 --to=https://example.com
 curl http://localhost:3000 --head --header "Host: example.com"
 ```
 
-### [Crimson](./crimson/)
+### [Crimson](cmd/crimson/)
 
 An exploration into security headers with a gohtml site.
 
@@ -30,6 +30,10 @@ go run ./crimson -dev=true
 ```shell
 # On updating go.work file.
 go work sync
+
+go mod tidy
+go mod vendor
+go test $(go list ./... | grep -v /vendor/)
 ```
 
 ## Resources
@@ -48,6 +52,5 @@ Resources referenced during the development of these experiments.
 - [Password Storage Cheat Sheet (cheatsheetseries.owasp.org)](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
 - [Scrutinise (github.com)](https://github.com/dbtedman/scrutinise)
 - [Security Headers (securityheaders.com)](https://securityheaders.com)
-- [Tutorial: Getting started with multi-module workspaces (go.dev)](https://go.dev/doc/tutorial/workspaces)
 - [V. Single Host Reverse Proxy (fideloper.com)](https://fideloper.com/golang-single-host-reverse-proxy)
 - [What is .crt and .key files and how to generate them? (serverfault.com)](https://serverfault.com/questions/224122#answer-224127)

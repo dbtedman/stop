@@ -1,18 +1,15 @@
-package options_test
+package main
 
 import (
-	"testing"
-
-	"github.com/dbtedman/stop/aquamarine/internal/options"
-
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 const aListenAddress = "https://localhost"
 const aProxyAddress = "http://localhost:8080"
 
 func TestNewOptions(t *testing.T) {
-	theOptions, err := options.NewOptions(
+	theOptions, err := NewOptions(
 		aListenAddress,
 		aProxyAddress,
 	)
@@ -23,7 +20,7 @@ func TestNewOptions(t *testing.T) {
 }
 
 func TestNewOptionsRejectsAbsentListenAddress(t *testing.T) {
-	_, err := options.NewOptions(
+	_, err := NewOptions(
 		"",
 		aProxyAddress,
 	)
@@ -32,7 +29,7 @@ func TestNewOptionsRejectsAbsentListenAddress(t *testing.T) {
 }
 
 func TestNewOptionsRejectsAbsentProxyAddress(t *testing.T) {
-	_, err := options.NewOptions(
+	_, err := NewOptions(
 		aListenAddress,
 		"",
 	)
@@ -41,7 +38,7 @@ func TestNewOptionsRejectsAbsentProxyAddress(t *testing.T) {
 }
 
 func TestNewOptionsRejectsInvalidProxyAddress(t *testing.T) {
-	_, err := options.NewOptions(
+	_, err := NewOptions(
 		aListenAddress,
 		"://localhost",
 	)

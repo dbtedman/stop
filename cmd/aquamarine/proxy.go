@@ -1,16 +1,31 @@
-package web
+package main
 
 import (
 	"fmt"
 	"net/http"
+	"net/http/httputil"
+	"net/url"
 	"time"
-
-	"github.com/dbtedman/stop/aquamarine/internal/options"
-	"github.com/dbtedman/stop/aquamarine/internal/proxy"
 )
 
-func ListenHTTPWithProxy(proxyServer proxy.Proxy, options options.Options, errorCh *chan error) {
-	aProxy := proxy.NewProxyHandler(options.ProxyAddressURL())
+func NewProxyHandler(toUrl url.URL) *httputil.ReverseProxy {
+	proxy := httputil.NewSingleHostReverseProxy(&toUrl)
+	proxy.ModifyResponse = func(response *http.Response) error {
+		SetStrictTransportSecurityHeader(response)
+		SetContentSecurityPolicyHeader(response)
+		SetXFrameOptionsHeader(response)
+		SetXContentTypeOptionsHeader(response)
+		SetReferrerPolicyHeader(response)
+		SetPermissionsPolicyHeader(response)
+
+		return nil
+	}
+
+	return proxy
+}
+
+func ListenHTTPWithProxy(proxyServer Proxy, options Options, errorCh *chan error) {
+	aProxy := NewProxyHandler(options.ProxyAddressURL())
 	aProxy.Transport = TransportLogger{}
 
 	listenAddress := options.ListenAddress()

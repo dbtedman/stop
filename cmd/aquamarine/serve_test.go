@@ -1,25 +1,24 @@
-package cmd_test
+package main
 
 import (
 	"bytes"
-	"testing"
-
-	"github.com/dbtedman/stop/aquamarine/cmd"
-
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
-func TestRootCommand(t *testing.T) {
+func TestServeCommand(t *testing.T) {
 	// given
 	errorCh := make(chan error)
 	var errConsole bytes.Buffer
 	var outConsole bytes.Buffer
-	command := cmd.RootCommand(&errorCh)
+	proxy := TestProxy{}
+	command := ServeCommand(&proxy, &errorCh)
 	command.SetErr(&errConsole)
 	command.SetOut(&outConsole)
 
 	// when
 	go func() {
+		command.SetArgs([]string{"", "--from=:3000", "--to=https://example.com"})
 		errorCh <- command.Execute()
 	}()
 	err := <-errorCh
@@ -27,6 +26,5 @@ func TestRootCommand(t *testing.T) {
 	// then
 	assert.Nil(t, err)
 	assert.Equal(t, "", errConsole.String())
-	assert.Contains(t, outConsole.String(), "Provide security by proxying requests to legacy applications.")
-	assert.Contains(t, outConsole.String(), "-h, --help   help for conveyance")
+	assert.Equal(t, ":3000", proxy.Addr)
 }
