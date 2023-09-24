@@ -15,8 +15,14 @@ An experiment for [every colour of the web](https://en.wikipedia.org/wiki/Web_co
 Provide security by proxying requests to legacy applications.
 
 ```shell
-go run ./aquamarine --from=:3000 --to=https://example.com
+brew install dbtedman/tap/aquamarine
+```
 
+```shell
+aquamarine serve --from=:3000 --to=https://example.com
+```
+
+```shell
 curl http://localhost:3000 --head --header "Host: example.com"
 ```
 
@@ -25,8 +31,11 @@ curl http://localhost:3000 --head --header "Host: example.com"
 An exploration into security headers with a gohtml site.
 
 ```shell
-go run ./crimson
-go run ./crimson -dev=true
+brew install dbtedman/tap/crimson
+```
+
+```shell
+crimson
 ```
 
 ## Resources
