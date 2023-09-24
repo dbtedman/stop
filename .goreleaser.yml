@@ -62,5 +62,32 @@ archives:
         name_template: '{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
 
 checksum:
-    name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
+    name_template: '{{ .Binary }}_{{ .Version }}_SHA256SUMS'
     algorithm: "sha256"
+
+brews:
+    -   name: "aquamarine"
+        ids:
+            - "aquamarine"
+        repository:
+            owner: "dbtedman"
+            name: "homebrew-tap"
+            branch: "main"
+            token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+        homepage: "https://github.com/dbtedman/stop"
+        description: "Provide security by proxying requests to legacy applications."
+        license: "MIT"
+        folder: "Formula"
+
+    -   name: "crimson"
+        ids:
+            - "crimson"
+        repository:
+            owner: "dbtedman"
+            name: "homebrew-tap"
+            branch: "main"
+            token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+        homepage: "https://github.com/dbtedman/stop"
+        description: "An exploration into security headers with a gohtml site."
+        license: "MIT"
+        folder: "Formula"
