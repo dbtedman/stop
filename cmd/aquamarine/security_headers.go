@@ -2,10 +2,8 @@ package main
 
 import "net/http"
 
-const PermissionsPolicy = "Permissions-Policy"
 const ReferrerPolicy = "Referrer-Policy"
 const XContentTypeOptions = "X-Content-Type-Options"
-const XFrameOptions = "X-Frame-Options"
 const ContentSecurityPolicy = "Content-Security-Policy"
 
 func SetContentSecurityPolicyHeader(response *http.Response) {
@@ -37,18 +35,10 @@ func SetContentSecurityPolicyHeader(response *http.Response) {
 	response.Header.Set("Content-Security-Policy", policy)
 }
 
-func SetXFrameOptionsHeader(response *http.Response) {
-	response.Header.Set(XFrameOptions, "DENY")
-}
-
 func SetXContentTypeOptionsHeader(response *http.Response) {
 	response.Header.Set(XContentTypeOptions, "nosniff")
 }
 
 func SetReferrerPolicyHeader(response *http.Response) {
 	response.Header.Set(ReferrerPolicy, "strict-origin-when-cross-origin")
-}
-
-func SetPermissionsPolicyHeader(response *http.Response) {
-	response.Header.Set(PermissionsPolicy, "geolocation=(), camera=(), microphone=(), display-capture=()")
 }

@@ -31,10 +31,10 @@ func TestNewProxyHandlerModifyResponse(t *testing.T) {
 
 	// then
 	assert.Nil(t, err)
-	assert.NotNil(t, response.Header.Get(PermissionsPolicy))
+	assert.NotNil(t, response.Header.Get(http_header.PermissionsPolicy))
 	assert.NotNil(t, response.Header.Get(ReferrerPolicy))
 	assert.NotNil(t, response.Header.Get(XContentTypeOptions))
-	assert.NotNil(t, response.Header.Get(XFrameOptions))
+	assert.NotNil(t, response.Header.Get(http_header.XFrameOptions))
 	assert.NotNil(t, response.Header.Get(http_header.StrictTransportSecurity))
 	assert.NotNil(t, response.Header.Get(ContentSecurityPolicy))
 }

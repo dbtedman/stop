@@ -14,10 +14,10 @@ func NewProxyHandler(toUrl url.URL) *httputil.ReverseProxy {
 	proxy.ModifyResponse = func(response *http.Response) error {
 		http_header.SetStrictTransportSecurityHeader(response)
 		SetContentSecurityPolicyHeader(response)
-		SetXFrameOptionsHeader(response)
+		http_header.SetXFrameOptionsHeader(response)
 		SetXContentTypeOptionsHeader(response)
 		SetReferrerPolicyHeader(response)
-		SetPermissionsPolicyHeader(response)
+		http_header.SetPermissionsPolicyHeader(response)
 
 		return nil
 	}

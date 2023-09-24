@@ -49,22 +49,6 @@ func TestSetContentSecurityPolicyHeader(t *testing.T) {
 	}
 }
 
-func TestSetXFrameOptionsHeader(t *testing.T) {
-	response := &http.Response{Header: http.Header{}}
-	SetXFrameOptionsHeader(response)
-
-	result := response.Header.Get(XFrameOptions)
-
-	// reference:
-	// - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
-	// - https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#x-frame-options
-	allowedResults := []string{
-		"DENY",
-		"SAMEORIGIN",
-	}
-	assert.Truef(t, slices.Contains(allowedResults, result), "result [%s] is not an allowed value [%s]", result, allowedResults)
-}
-
 func TestSetXContentTypeOptionsHeader(t *testing.T) {
 	response := &http.Response{Header: http.Header{}}
 	SetXContentTypeOptionsHeader(response)
@@ -98,37 +82,4 @@ func TestSetReferrerPolicyHeader(t *testing.T) {
 		"unsafe-url",
 	}
 	assert.Truef(t, slices.Contains(allowedResults, result), "result [%s] is not an allowed value [%s]", result, allowedResults)
-}
-
-func TestSetPermissionsPolicyHeader(t *testing.T) {
-	response := &http.Response{Header: http.Header{}}
-	SetPermissionsPolicyHeader(response)
-
-	result := response.Header.Get(PermissionsPolicy)
-
-	resultPartsPairs := strings.Split(result, ",")
-
-	// reference:
-	// - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy
-	// - https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#permissions-policy-formerly-feature-policy
-	allowedDirectives := []string{
-		"camera",          // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/camera
-		"display-capture", // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/display-capture
-		"fullscreen",      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/fullscreen
-		"geolocation",     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/geolocation
-		"microphone",      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/microphone
-		"web-share",       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/web-share
-	}
-
-	assert.GreaterOrEqual(t, len(resultPartsPairs), 1)
-
-	for _, resultPartPair := range resultPartsPairs {
-		resultParts := strings.Split(resultPartPair, "=")
-
-		directive := strings.Trim(resultParts[0], " ")
-		allowList := resultParts[1]
-
-		assert.Truef(t, slices.Contains(allowedDirectives, directive), "[%s] is not an allowed directive, expected one of [%s]", directive, allowedDirectives)
-		assert.Equal(t, "()", allowList, "allowList should be empty")
-	}
 }
