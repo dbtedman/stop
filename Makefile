@@ -5,7 +5,7 @@ all: install lint test
 
 .PHONY: install
 install:
-	@go mod vendor
+	@go mod tidy && go mod vendor
 
 .PHONY: lint
 lint:

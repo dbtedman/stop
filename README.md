@@ -1,5 +1,8 @@
 # [Stop](https://github.com/dbtedman/stop)
 
+[![CI GitHub Pipeline](https://img.shields.io/github/actions/workflow/status/dbtedman/stop/ci.yml?branch=main&style=for-the-badge&logo=github&label=ci)](https://github.com/dbtedman/stop/actions/workflows/ci.yml?query=branch%3Amain)
+[![Go Report Card](https://goreportcard.com/badge/github.com/dbtedman/stop?style=for-the-badge)](https://goreportcard.com/report/github.com/dbtedman/stop)
+
 Go experiments monorepo.
 
 ## Experiments
@@ -23,17 +26,6 @@ An exploration into security headers with a gohtml site.
 ```shell
 go run ./crimson
 go run ./crimson -dev=true
-```
-
-## Workflow
-
-```shell
-# On updating go.work file.
-go work sync
-
-go mod tidy
-go mod vendor
-go test $(go list ./... | grep -v /vendor/)
 ```
 
 ## Resources
