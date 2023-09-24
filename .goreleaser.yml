@@ -55,20 +55,27 @@ builds:
 
 archives:
     -   format: "binary"
-        id: "binary"
+        id: "aquamarine_binary"
+        builds:
+            - "aquamarine"
+        name_template: 'aquamarine_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+    -   format: "binary"
+        id: "crimson_binary"
+        builds:
+            - "crimson"
         name_template: '{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
     -   format: "zip"
         id: "zip"
         name_template: '{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
 
 checksum:
-    name_template: '{{ .Binary }}_{{ .Version }}_SHA256SUMS'
+    name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
     algorithm: "sha256"
 
 brews:
     -   name: "aquamarine"
         ids:
-            - "aquamarine"
+            - "aquamarine_binary"
         repository:
             owner: "dbtedman"
             name: "homebrew-tap"
@@ -81,7 +88,7 @@ brews:
 
     -   name: "crimson"
         ids:
-            - "crimson"
+            - "crimson_binary"
         repository:
             owner: "dbtedman"
             name: "homebrew-tap"
