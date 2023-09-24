@@ -1,0 +1,66 @@
+before:
+    hooks:
+        - "go mod tidy"
+
+builds:
+    -   id: "aquamarine"
+        binary: "aquamarine"
+        main: "cmd/aquamarine/main.go"
+        env:
+            # Build a statically-linked binary without external dependencies.
+            - "CGO_ENABLED=0"
+        mod_timestamp: "{{ .CommitTimestamp }}"
+        flags:
+            # Remove all file system paths from the resulting executable.
+            - "-trimpath"
+        ldflags:
+            # Omit the symbol table and debug information.
+            - "-s"
+            # Omit the DWARF symbol table.
+            - "-w"
+            # Populate build information into version variables.
+            - "-X github.com/dbtedman/conveyance/cmd.version={{.Version}}"
+            - "-X github.com/dbtedman/conveyance/cmd.commit={{.Commit}}"
+            - "-X github.com/dbtedman/conveyance/cmd.date={{.CommitDate}}"
+        goos:
+            - "linux"
+            - "darwin"
+            - "windows"
+        goarch:
+            - "amd64"
+            - "arm64"
+
+    -   id: "crimson"
+        binary: "crimson"
+        main: "cmd/crimson/main.go"
+        env:
+            # Build a statically-linked binary without external dependencies.
+            - "CGO_ENABLED=0"
+        mod_timestamp: "{{ .CommitTimestamp }}"
+        flags:
+            # Remove all file system paths from the resulting executable.
+            - "-trimpath"
+        ldflags:
+            # Omit the symbol table and debug information.
+            - "-s"
+            # Omit the DWARF symbol table.
+            - "-w"
+        goos:
+            - "linux"
+            - "darwin"
+            - "windows"
+        goarch:
+            - "amd64"
+            - "arm64"
+
+archives:
+    -   format: "binary"
+        id: "binary"
+        name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+    -   format: "zip"
+        id: "zip"
+        name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+
+checksum:
+    name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
+    algorithm: "sha256"

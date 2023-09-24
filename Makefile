@@ -18,3 +18,7 @@ format:
 .PHONY: test
 test:
 	@CGO_ENABLED=0 go test ./cmd/... ./internal/...
+
+.PHONY: build
+build:
+	@CGO_ENABLED=0 goreleaser build --clean --snapshot

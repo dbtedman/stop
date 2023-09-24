@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/dbtedman/stop/cmd/aquamarine/cmd"
 	"github.com/dbtedman/stop/internal/signals"
 )
 
@@ -9,7 +10,7 @@ func main() {
 }
 
 func run(errorCh *chan error) {
-	RunRoot(errorCh)
+	cmd.RunRoot(errorCh)
 }
 
 func performCleanup(err error) {
