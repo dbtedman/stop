@@ -22,3 +22,7 @@ test:
 .PHONY: build
 build:
 	@CGO_ENABLED=0 goreleaser build --clean --snapshot
+
+.PHONY: release_dry_run
+release_dry_run:
+	@CGO_ENABLED=0 goreleaser release --clean --skip=publish

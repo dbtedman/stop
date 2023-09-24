@@ -2,7 +2,7 @@
 
 [![CI GitHub Pipeline](https://img.shields.io/github/actions/workflow/status/dbtedman/stop/ci.yml?branch=main&style=for-the-badge&logo=github&label=ci)](https://github.com/dbtedman/stop/actions/workflows/ci.yml?query=branch%3Amain)
 [![Go Report Card](https://goreportcard.com/badge/github.com/dbtedman/stop?style=for-the-badge)](https://goreportcard.com/report/github.com/dbtedman/stop)
-[![Latest Release](https://img.shields.io/github/v/release/dbtedman/stop?style=for-the-badge&color=red)](https://github.com/dbtedman/stop/releases)
+[![Latest Release](https://img.shields.io/github/v/release/dbtedman/stop?style=for-the-badge&color=blue)](https://github.com/dbtedman/stop/releases)
 
 Go experiments monorepo.
 
