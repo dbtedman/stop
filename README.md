@@ -46,7 +46,6 @@ crimson -cert=host.cert -key=host.key
 
 Resources referenced during the development of these experiments.
 
-- [Accretion (github.com)](https://github.com/dbtedman/accretion)
 - [Assigning permissions to jobs (docs.github.com)](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs)
 - [Cache-Control for Civilians (csswizardry.com)](https://csswizardry.com/2019/03/cache-control-for-civilians/)
 - [Cobra: A Framework for Modern CLI Apps in Go (cobra.dev)](https://cobra.dev)
@@ -64,7 +63,6 @@ Resources referenced during the development of these experiments.
 - [How to Use go:embed in Go (blog.jetbrains.com)](https://blog.jetbrains.com/go/2021/06/09/how-to-use-go-embed-in-go-1-16/)
 - [How to properly seed random number generator (stackoverflow.com)](https://stackoverflow.com/questions/12321133/how-to-properly-seed-random-number-generator)
 - [Password Storage Cheat Sheet (cheatsheetseries.owasp.org)](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
-- [Scrutinise (github.com)](https://github.com/dbtedman/scrutinise)
 - [Security Headers (securityheaders.com)](https://securityheaders.com)
 - [Serve embedded filesystem from root path of URL (stackoverflow.com)](https://stackoverflow.com/questions/66248258)
 - [Testing Your (HTTP) Handlers in Go (blog.questionable.services)](https://blog.questionable.services/article/testing-http-handlers-go/)
