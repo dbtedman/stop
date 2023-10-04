@@ -42,6 +42,14 @@ brew install dbtedman/tap/crimson
 crimson -cert=host.cert -key=host.key
 ```
 
+### Khaki
+
+Tool for sanitising data files of sensitive information through substitution with fake information.
+
+```shell
+khaki --in=./dump.sql --out=./safe.sql --preset=wordpress
+```
+
 ## Resources
 
 Resources referenced during the development of these experiments.
